@@ -1,0 +1,197 @@
+/* Custom Properties */
+
+:root {
+
+  --clr-primary-800: hsl(233, 47%, 7%); 
+  --clr-primary-700: hsl(244, 38%, 16%);
+  --clr-primary-400: hsl(277, 64%, 61%);
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-transparent-para: hsla(0, 0%, 100%, 0.75);
+  --clr-transparent-stats: hsla(0, 0%, 100%, 0.6);
+
+  --ff-heading: 'Lexend Deca', sans-serif;
+  --ff-main: 'Inter', sans-serif;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  --fs-body: 0.8rem;
+  --fs-head: 1.2rem;
+}
+
+/* CSS Reset */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+    height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* General Styling */
+
+body {
+    font-family: var(--ff-main);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-body);
+    color: var(--clr-transparent-para);
+    background-color: var(--clr-primary-800);
+
+    display: grid;
+    place-content: center;
+    margin: 1rem;
+}
+
+/* insights Styling */
+
+.insights-card {
+    --content-padding: 1.5rem;
+
+    background-color: var(--clr-primary-700);
+    border-radius: 1rem;
+    overflow: hidden;
+    display: grid;
+    max-width: 600px;
+    
+}
+
+@media (min-width:600px) {
+    .insights-card {
+        grid-template-columns: 1fr 1fr;
+        max-height: 250px;
+    }
+
+    .insights__img {
+        grid-start: 2;
+    }
+
+    .insights__content {
+        grid-columns: 1;
+        grid-row: 1;
+        text-align: left;
+    }
+}
+
+.insights__content {
+    padding: var(--content-padding);
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    
+}
+
+.insights__img {
+    filter: opacity(0.5) drop-shadow(0 0 var(--clr-primary-400));
+
+}
+
+@media (max-width:599px) {
+    .insights__content {
+        text-align: center;
+    }
+
+    .insights-card {
+        max-width: 400px;
+    }
+}
+
+.insights__content .main-text {
+    color: hsla(0, 0%, 100%, 0.75);
+
+}
+
+.insights__header span {
+    color: var(--clr-primary-400);
+}
+
+.insights__stats {
+    color: hsla(0, 0%, 100%, 0.248);
+    text-transform: uppercase;
+    display: block;
+}
+
+.insights__stats span {
+    text-transform: none;
+    color: var(--clr-neutral-100);
+    font-weight: var(--fw-bold);
+
+}
+
+.flex-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 600px) {
+    .flex-group {
+        flex-direction: row;
+    }
+
+    img {
+        height: 100%;
+    }
+}
